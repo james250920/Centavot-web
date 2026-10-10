@@ -1,0 +1,6 @@
+.git
+.impeccable
+*.md
+img/*.json
+Dockerfile
+.dockerignore
