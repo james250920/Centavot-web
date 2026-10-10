@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Centavot · Tu cuaderno, pero que suma solo</title>
+  <meta name="description" content="Centavot es una app gratis para bodegas y puestos de Lima: anota tus ventas en un toque y la app hace las cuentas. Buscamos 20 negocios para el piloto.">
+  <meta name="theme-color" content="#E10600">
+  <meta property="og:title" content="Centavot · ¡Ya no suma en el cuaderno!">
+  <meta property="og:description" content="Anota como siempre. Centavot hace las cuentas. Prueba gratis en tu negocio.">
+  <meta property="og:image" content="img/mano-moneda.png">
+  <meta property="og:locale" content="es_PE">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&family=Caveat:wght@500&family=League+Gothic&display=swap">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <a class="saltar" href="#portada">Ir al contenido</a>
+
+  <header class="cabecera">
+    <div class="cabecera__folio envoltura">
+      <span id="fecha-hoy">Lima, octubre de 2026</span>
+      <span>Año 1 · N.º 001 · Edición del piloto</span>
+    </div>
+    <div class="cabecera__banda">
+      <div class="envoltura cabecera__fila">
+        <a class="cabecera__marca" href="#portada" aria-label="Centavot, ir al inicio">
+          <span class="cabecera__mano" aria-hidden="true"></span>
+          <span class="cabecera__nombre">Centavot</span>
+        </a>
+        <p class="cabecera__lema">El diario de las cuentas de tu negocio</p>
+        <p class="precio" aria-label="Precio: gratis">
+          <span class="precio__antes">S/ 0.60</span>
+          <span class="precio__ahora">Gratis</span>
+        </p>
+      </div>
+    </div>
+    <nav class="indice" aria-label="Secciones">
+      <ul class="envoltura">
+        <li><a href="#anota"><b>Pág. 2</b> Anota</a></li>
+        <li><a href="#fiados"><b>Pág. 3</b> Fiados</a></li>
+        <li><a href="#caja"><b>Pág. 4</b> Tu caja</a></li>
+        <li><a href="#tope"><b>Pág. 5</b> Tu tope</a></li>
+        <li><a href="#datos"><b>Pág. 6</b> Tus datos</a></li>
+        <li><a href="#clasificados" class="indice__destacado"><b>Pág. 7</b> Únete al piloto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="portada">
+    <!-- PORTADA -->
+    <section class="portada envoltura" aria-labelledby="titular">
+      <h1 id="titular" class="titular">
+        <span>¡Ya no suma</span>
+        <span>en el <em>cuaderno!</em></span>
+      </h1>
+      <p class="bajada">
+        Bodegas y puestos de Lima anotan cada venta en un toque y <strong>Centavot hace las cuentas</strong>:
+        cuánto vendieron, cuánto gastaron, quién les debe y cuánto les quedó de verdad.
+      </p>
+
+      <figure class="portada__foto">
+        <img src="img/mano-moneda.webp" width="739" height="760" alt="Una mano sostiene una moneda de un sol, impresa en trama de periódico" fetchpriority="high">
+        <figcaption><b>FOTO:</b> La moneda de un sol. Centavot cuenta cada una por ti, del primer cliente al cierre de caja.</figcaption>
+      </figure>
+
+      <div class="portada__lateral">
+        <aside class="recuadro" aria-labelledby="recuadro-titulo">
+          <h2 id="recuadro-titulo" class="recuadro__titulo">Pruébala gratis en tu negocio</h2>
+          <p>Buscamos <strong>20 bodegas y puestos de Lima</strong> para el piloto de octubre a diciembre. Vamos a tu negocio, te la instalamos y en 3 minutos ya estás anotando.</p>
+          <a class="boton boton--whatsapp" data-whatsapp href="#clasificados">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+            Escríbenos por WhatsApp
+          </a>
+          <a class="enlace-flecha" href="#clasificados">o déjanos tus datos <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path d="M8 2v10M3.5 7.5 8 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg></a>
+        </aside>
+
+        <figure class="telefono">
+          <div class="telefono__marco">
+            <img src="img/app-inicio.webp" width="540" height="1052" alt="Pantalla de inicio de Centavot: botones Venta y Gasto, aviso de tope al 84 % y Tu caja con lo vendido hoy">
+          </div>
+          <figcaption><b>EN EL CELULAR:</b> Así se ve la app. Datos de ejemplo.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="cintillo" aria-label="Lo esencial de Centavot">
+      <ul class="envoltura">
+        <li>Gratis</li><li>Sin banco</li><li>Nada a SUNAT</li><li>Tus datos en tu celular</li>
+        <li>Funciona sin internet</li><li>Para celulares Android</li>
+      </ul>
+    </div>
+
+    <!-- PÁG. 2 · ANOTA -->
+    <section id="anota" class="pagina envoltura" aria-labelledby="anota-titulo">
+      <div class="seccion-cabeza">
+      <h2 id="anota-titulo" class="pagina__titulo">Anota como siempre.<br>Centavot hace las cuentas.</h2>
+      <p class="folio">Pág. 2 · Apertura · 7:00 a. m.</p>
+      </div>
+      <div class="columnas">
+        <div class="columnas__texto">
+          <p class="capitular">Abre la bodega, entra el primer cliente y se lleva una gaseosa. En el cuaderno, eso es una línea más que alguien tendrá que sumar en la noche. En Centavot es <strong>un toque</strong>: tus ventas de siempre aparecen como botones, con su precio.</p>
+          <p>¿Vendiste algo distinto? Escribe el monto o toca S/ 1, 2, 5, 10, 20 o 50 y listo. Lo demás (si es del negocio, la fecha, el nombre) ya viene puesto, y lo cambias solo si hace falta.</p>
+          <p>¿Te equivocaste? Toca <strong>Deshacer</strong>. Nada se cambia solo.</p>
+        </div>
+
+        <div class="prueba" aria-labelledby="prueba-titulo">
+          <h3 id="prueba-titulo" class="prueba__titulo">Haz la prueba: toca tus ventas</h3>
+          <div class="prueba__botones" role="group" aria-label="Ventas frecuentes de ejemplo">
+            <button type="button" data-venta="3.50" data-nombre="Gaseosa">Gaseosa · S/ 3.50</button>
+            <button type="button" data-venta="5.00" data-nombre="Pan">Pan · S/ 5.00</button>
+            <button type="button" data-venta="4.20" data-nombre="Arroz 1 kg">Arroz 1 kg · S/ 4.20</button>
+            <button type="button" data-venta="9.90" data-nombre="Aceite">Aceite · S/ 9.90</button>
+            <button type="button" data-venta="45.00" data-nombre="Abarrotes">Abarrotes · S/ 45.00</button>
+          </div>
+          <div class="prueba__comparacion">
+            <div class="cuaderno" aria-label="Tu cuaderno">
+              <p class="cuaderno__titulo">Tu cuaderno</p>
+              <ol class="cuaderno__lineas" id="cuaderno-lineas"></ol>
+              <p class="cuaderno__total">Total: <span id="cuaderno-total">… ¿cuánto era?</span></p>
+            </div>
+            <div class="caja-viva" aria-live="polite">
+              <p class="caja-viva__titulo">Centavot</p>
+              <dl>
+                <div><dt>Vendiste hoy</dt><dd id="caja-total">S/ 0.00</dd></div>
+                <div><dt>Ventas anotadas</dt><dd id="caja-cuenta">0</dd></div>
+              </dl>
+              <p class="caja-viva__nota" id="caja-nota">Toca una venta para empezar.</p>
+            </div>
+          </div>
+          <button type="button" class="enlace-boton" id="prueba-reiniciar">Borrar y empezar de nuevo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁG. 3 · FIADOS -->
+    <section id="fiados" class="pagina envoltura" aria-labelledby="fiados-titulo">
+      <div class="seccion-cabeza">
+      <h2 id="fiados-titulo" class="pagina__titulo">¿Quién te debe?<br>Ya no se te olvida nadie.</h2>
+      <p class="folio">Pág. 3 · Mediodía · el fiado</p>
+      </div>
+      <div class="columnas columnas--foto">
+        <figure class="telefono telefono--chico">
+          <div class="telefono__marco"><img src="img/app-cobros.webp" width="540" height="1052" loading="lazy" alt="Pantalla de Cobros: te deben S/ 255.00, con un pedido de Don Lucho y un fiado de la Señora Juana"></div>
+          <figcaption><b>COBROS:</b> Don Lucho y la Señora Juana son de ejemplo.</figcaption>
+        </figure>
+        <div class="columnas__texto">
+          <p class="capitular">El vecino que se lleva sus abarrotes «y te pago el viernes». El pedido de 20 menús con adelanto. En Centavot cada uno queda con su nombre, lo que debe y desde cuándo.</p>
+          <ul class="lista-puntos">
+            <li><strong>Fiados y préstamos</strong>, y <strong>pedidos con adelanto</strong>: la app te dice cuánto falta.</li>
+            <li><strong>Abonos</strong>: si te paga por partes, anotas cada parte y el saldo baja solo.</li>
+            <li><strong>Recordatorio por WhatsApp</strong>: un toque y el mensaje ya está escrito. Lo mandas tú.</li>
+          </ul>
+          <figure class="burbuja">
+            <p>Hola Don Lucho, te escribo para recordarte que tu pedido "20 menús para la obra" tiene un saldo de S/ 200.00. Saludos, Rosa.</p>
+            <figcaption>El mensaje que arma la app, con datos de ejemplo.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁG. 4 · TU CAJA -->
+    <section id="caja" class="pagina pagina--invertida" aria-labelledby="caja-titulo">
+      <div class="envoltura">
+        <div class="seccion-cabeza">
+        <h2 id="caja-titulo" class="pagina__titulo">Sabe cuánto ganaste hoy,<br>no solo cuánto entró.</h2>
+        <p class="folio">Pág. 4 · Cierre del día · 9:00 p. m.</p>
+      </div>
+        <div class="columnas">
+          <div>
+            <table class="cuentas">
+              <caption>Tu caja de hoy <span>(ejemplo)</span></caption>
+              <tbody>
+                <tr><th scope="row">Vendiste</th><td>S/ 153.70</td></tr>
+                <tr><th scope="row">Gastaste en el negocio</th><td>S/ 12.00</td></tr>
+                <tr class="cuentas__total"><th scope="row">Te quedó</th><td>S/ 141.70</td></tr>
+                <tr class="cuentas__aparte"><th scope="row">Aparte, lo de tu casa</th><td>S/ 10.00</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="columnas__texto">
+            <p class="capitular">Lo que hay en la caja no es lo que ganaste: ahí se mezclan las ventas, la mercadería que compraste y la plata de la casa. Centavot las separa desde que las anotas.</p>
+            <p>Mira tu caja de <strong>hoy, la semana o el mes</strong>. Y en <strong>Mi negocio</strong> ves en qué se fue la plata y cómo te fue mes a mes, para decidir qué comprar mañana.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁG. 5 · TU TOPE -->
+    <section id="tope" class="pagina envoltura" aria-labelledby="tope-titulo">
+      <div class="seccion-cabeza">
+      <h2 id="tope-titulo" class="pagina__titulo">Te avisamos antes de que<br>tu régimen sea un problema.</h2>
+      <p class="folio">Pág. 5 · Fin de mes · tu régimen</p>
+      </div>
+      <div class="columnas">
+        <div class="infografia" role="img" aria-label="Ejemplo: ventas del mes al 84 % del tope de S/ 8,000 del Nuevo RUS categoría 2">
+          <p class="infografia__cifra">84<span>%</span></p>
+          <p class="infografia__texto">de tu tope del mes ya está en ventas <span>(ejemplo: S/ 6,749.70 de S/ 8,000)</span></p>
+          <div class="barra" aria-hidden="true">
+            <span class="barra__lleno" style="--avance: 84%"></span>
+            <span class="barra__marca" style="--en: 80%">80 %</span>
+            <span class="barra__marca" style="--en: 90%">90 %</span>
+            <span class="barra__marca" style="--en: 100%">100 %</span>
+          </div>
+        </div>
+        <div class="columnas__texto">
+          <p class="capitular">Si estás en el <strong>Nuevo RUS</strong>, tu categoría tiene un tope al mes, y cuenta lo que vendes <strong>y también lo que compras</strong>. En el <strong>RER</strong>, el tope es lo que vendes en el año. Centavot lleva la cuenta mientras anotas y te avisa al llegar al <strong>80, 90 y 100 %</strong>.</p>
+          <p>A fin de mes tienes un <strong>resumen para tu contador</strong> que se abre en Excel.</p>
+          <p class="nota"><b>Ojo:</b> los topes que muestra la app son referenciales. Confírmalos con tu contador o en tu Clave SOL.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁG. 6 · TUS DATOS -->
+    <section id="datos" class="pagina envoltura" aria-labelledby="datos-titulo">
+      <div class="seccion-cabeza seccion-cabeza--sola">
+        <p class="folio">Pág. 6 · Aviso importante</p>
+      </div>
+      <div class="aviso">
+        <img class="aviso__mano" src="img/mano-moneda.webp" width="739" height="760" alt="" loading="lazy">
+        <h2 id="datos-titulo" class="pagina__titulo">Tus datos son tuyos.</h2>
+        <ol class="aviso__lista">
+          <li><b>No pedimos tu banco.</b> Ni claves ni número de cuenta.</li>
+          <li><b>No le mandamos nada a SUNAT.</b> Los reportes los ves tú y a quien tú se los mandes.</li>
+          <li><b>Todo se guarda en tu celular.</b> No se sube a ningún servidor. Funciona sin internet.</li>
+          <li><b>Puedes llevarte o borrar todo</b> cuando quieras, desde Ajustes, como manda la Ley 29733 de protección de datos.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PÁG. 8 · CLASIFICADOS -->
+    <section id="clasificados" class="pagina envoltura" aria-labelledby="clasificados-titulo">
+      <div class="seccion-cabeza">
+      <h2 id="clasificados-titulo" class="pagina__titulo">Clasificados</h2>
+      <p class="folio">Pág. 7</p>
+      </div>
+      <div class="clasificados">
+        <article class="aviso-clasificado aviso-clasificado--grande" aria-labelledby="se-buscan">
+          <h3 id="se-buscan" class="aviso-clasificado__titulo">Se buscan 20 bodegas</h3>
+          <p>…y puestos de mercado de Lima para probar <strong>Centavot gratis</strong> de octubre a diciembre de 2026. Vamos a tu negocio, te la instalamos y te enseñamos. Solo necesitas un celular Android.</p>
+          <form class="formulario" id="formulario" novalidate>
+            <div class="campo">
+              <label for="f-nombre">¿Cómo te llamas?</label>
+              <input id="f-nombre" name="nombre" autocomplete="given-name" required>
+            </div>
+            <div class="campo">
+              <label for="f-rubro">¿Qué negocio tienes?</label>
+              <select id="f-rubro" name="rubro" required>
+                <option value="">Elige uno</option>
+                <option>Bodega</option>
+                <option>Puesto de mercado</option>
+                <option>Menú o restaurante</option>
+                <option>Venta de ropa</option>
+                <option>Oficio o taller</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="f-distrito">¿En qué distrito?</label>
+              <input id="f-distrito" name="distrito" autocomplete="address-level2" required>
+            </div>
+            <div class="campo">
+              <label for="f-celular">Tu celular</label>
+              <input id="f-celular" name="celular" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="9 dígitos" required>
+            </div>
+            <p class="formulario__error" id="formulario-error" role="alert" hidden></p>
+            <button class="boton boton--whatsapp" type="submit">Enviar por WhatsApp</button>
+            <p class="formulario__nota">Se abre WhatsApp con tus datos ya escritos; lo envías tú. Solo los usamos para coordinar la visita.</p>
+          </form>
+        </article>
+
+        <article class="aviso-clasificado">
+          <h3 class="aviso-clasificado__titulo">¿Cuánto cuesta?</h3>
+          <p><b>Nada.</b> Centavot es gratis durante el piloto y mientras aprendes a usarla.</p>
+        </article>
+        <article class="aviso-clasificado">
+          <h3 class="aviso-clasificado__titulo">¿Necesita internet?</h3>
+          <p><b>No.</b> Anotas, sumas y revisas tu caja sin datos. Solo usas internet si quieres mandar un recordatorio o un reporte.</p>
+        </article>
+        <article class="aviso-clasificado">
+          <h3 class="aviso-clasificado__titulo">¿Sirve en iPhone?</h3>
+          <p><b>Por ahora no.</b> Es para celulares Android. Todavía no está en Google Play: la instalamos contigo en el piloto.</p>
+        </article>
+        <article class="aviso-clasificado">
+          <h3 class="aviso-clasificado__titulo">¿Y mi cuaderno?</h3>
+          <p><b>Síguelo usando.</b> Si prefieres, al cerrar el día pasa los totales a la app y ella hace el resto.</p>
+        </article>
+        <article class="aviso-clasificado">
+          <h3 class="aviso-clasificado__titulo">¿Reemplaza a mi contador?</h3>
+          <p><b>No.</b> Le entrega tus números ordenados en Excel. Él sigue siendo quien declara.</p>
+        </article>
+        <article class="aviso-clasificado">
+          <h3 class="aviso-clasificado__titulo">¿Quién la hace?</h3>
+          <p>Un equipo de estudiantes de la <b>Universidad ESAN</b>, en el curso Proyecto Startup. Conversamos con comerciantes para hacerla a su medida.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="envoltura pie__fila">
+      <p class="pie__nombre">Centavot</p>
+      <div class="pie__texto">
+        <p>Proyecto del curso Proyecto Startup · Universidad ESAN · Lima, 2026.</p>
+        <p>Equipo: Sandro Fabrizio Enrique Avila Agurto, James Frank Mendoza Rios y Meyly Cielo Mendoza Cobeñas.</p>
+        <p>Las pantallas y cifras de esta página son de ejemplo (Rosa, Don Lucho, la Señora Juana): no son clientes reales.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
