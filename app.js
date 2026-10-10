@@ -1,8 +1,8 @@
 // Centavot · landing del piloto.
 
-// ⚠️ REEMPLAZAR: número de WhatsApp del equipo, con código de país y sin "+" ni espacios (ej. 51987654321).
-// Mientras sea este marcador, los botones de WhatsApp llevan al formulario de la página.
-const NUMERO_WHATSAPP = "51900000000";
+// Número de WhatsApp del equipo, con código de país y sin "+" ni espacios.
+// Si se vuelve a poner el marcador "51900000000", los botones llevan al formulario de la página.
+const NUMERO_WHATSAPP = "51993375345";
 const ES_MARCADOR = NUMERO_WHATSAPP === "51900000000";
 
 const MENSAJE_INICIAL = "Hola, quiero probar Centavot gratis en mi negocio.";

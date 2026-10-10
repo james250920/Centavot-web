@@ -3,15 +3,11 @@
 Página para sumar bodegas y puestos de Lima al piloto gratis (octubre a diciembre de 2026).
 HTML, CSS y JavaScript sin dependencias ni compilación.
 
-## Antes de publicar
+## WhatsApp
 
-1. **Pon el número de WhatsApp del equipo** en `app.js`:
-   ```js
-   const NUMERO_WHATSAPP = "51987654321"; // código de país + número, sin "+" ni espacios
-   ```
-   Mientras siga el marcador `51900000000`, el botón de la portada lleva al formulario y el
-   formulario avisa que falta configurar el número.
-2. Si quieres, cambia las capturas de `img/` cuando la app cambie (son datos de ejemplo).
+Los botones y el formulario abren WhatsApp con el número del equipo, **+51 993 375 345**, configurado
+en `app.js` (`NUMERO_WHATSAPP`, con código de país y sin "+" ni espacios). Las capturas de `img/` son
+datos de ejemplo; cámbialas cuando la app cambie.
 
 ## Verla en tu computadora
 
