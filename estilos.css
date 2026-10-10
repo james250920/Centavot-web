@@ -347,6 +347,8 @@ figcaption b { color: var(--tinta); letter-spacing: 0.04em; }
   padding: 16px 18px 18px; font-size: 1rem; line-height: 1.45; background: #fffdf6;
 }
 .aviso-clasificado p { margin: 0; }
+/* El último aviso cierra la página a todo el ancho: con siete avisos ninguno queda suelto. */
+.aviso-clasificado--pie { grid-column: 1 / -1; }
 .aviso-clasificado__titulo {
   margin: 0 0 6px; font-family: var(--titular); font-weight: 400; text-transform: uppercase;
   font-size: 1.9rem; line-height: 0.95;
