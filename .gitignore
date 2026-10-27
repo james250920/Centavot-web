@@ -1,2 +1,6 @@
 # Informes y borradores locales de la skill de diseño (impeccable)
 .impeccable/
+
+# Cachés de las comprobaciones locales
+__pycache__/
+*.pyc

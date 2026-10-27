@@ -11,15 +11,13 @@ function enlaceWhatsApp(mensaje) {
   return `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
 }
 
-// ---------- Fecha de la edición (como en la cabecera del diario) ----------
-const fecha = document.getElementById("fecha-hoy");
-if (fecha) {
-  const texto = new Intl.DateTimeFormat("es-PE", { weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(new Date());
-  fecha.textContent = `Lima, ${texto}`;
-}
-
 // ---------- Botones de WhatsApp ----------
-if (!ES_MARCADOR) {
+if (ES_MARCADOR) {
+  document.querySelectorAll("[data-whatsapp]").forEach(a => {
+    a.href = "#clasificados";
+    a.removeAttribute("target");
+  });
+} else {
   document.querySelectorAll("[data-whatsapp]").forEach((a) => {
     a.href = enlaceWhatsApp(MENSAJE_INICIAL);
     a.target = "_blank";
@@ -76,7 +74,7 @@ function anotar(nombre, monto) {
 
   animarTotal(total);
   cajaCuenta.textContent = String(cuenta);
-  cajaNota.textContent = cuenta === 1 ? "Ya está sumado. Toca otra." : "Sin calculadora y sin borrones.";
+  cajaNota.textContent = `${cuenta} ${cuenta === 1 ? "venta anotada" : "ventas anotadas"}. Total: ${soles(total)}.`;
 }
 
 document.querySelectorAll("[data-venta]").forEach((boton) => {
@@ -106,17 +104,40 @@ formulario?.addEventListener("submit", (evento) => {
   const celular = String(datos.get("celular") || "").replace(/\D/g, "");
 
   const faltan = [];
-  const marcar = (id, mal) => document.getElementById(id).setAttribute("aria-invalid", mal ? "true" : "false");
-  marcar("f-nombre", !nombre); if (!nombre) faltan.push("tu nombre");
-  marcar("f-rubro", !rubro); if (!rubro) faltan.push("tu negocio");
-  marcar("f-distrito", !distrito); if (!distrito) faltan.push("tu distrito");
-  const celularMal = !/^9\d{8}$/.test(celular);
-  marcar("f-celular", celularMal); if (celularMal) faltan.push("un celular de 9 dígitos que empiece con 9");
+  const marcar = (id, mensaje) => {
+    const campo = document.getElementById(id);
+    const aviso = document.getElementById(`${id}-error`);
+    campo.setAttribute("aria-invalid", mensaje ? "true" : "false");
+    aviso.textContent = mensaje;
+    aviso.hidden = !mensaje;
+    if (mensaje) faltan.push({ id, mensaje });
+  };
+  marcar("f-nombre", nombre ? "" : "Escribe tu nombre.");
+  marcar("f-rubro", rubro ? "" : "Elige el tipo de negocio.");
+  marcar("f-distrito", distrito ? "" : "Escribe el distrito de tu negocio.");
+  marcar("f-celular", /^9\d{8}$/.test(celular) ? "" : "Escribe 9 dígitos; el primero debe ser 9.");
+  document.getElementById("formulario-estado").hidden = true;
 
   if (faltan.length) {
-    error.textContent = `Falta ${faltan.join(", ")}.`;
+    error.replaceChildren();
+    const titulo = document.createElement("strong");
+    titulo.textContent = "Revisa estos datos para continuar:";
+    const lista = document.createElement("ul");
+    for (const { id, mensaje } of faltan) {
+      const item = document.createElement("li");
+      const enlace = document.createElement("a");
+      enlace.href = `#${id}`;
+      enlace.textContent = mensaje;
+      enlace.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.getElementById(id).focus();
+      });
+      item.append(enlace);
+      lista.append(item);
+    }
+    error.append(titulo, lista);
     error.hidden = false;
-    formulario.querySelector('[aria-invalid="true"]')?.focus();
+    error.focus();
     return;
   }
   error.hidden = true;
@@ -127,5 +148,27 @@ formulario?.addEventListener("submit", (evento) => {
     error.hidden = false;
     return;
   }
-  window.open(enlaceWhatsApp(mensaje), "_blank", "noopener");
+  const destino = enlaceWhatsApp(mensaje);
+  window.open(destino, "_blank", "noopener");
+  const estado = document.getElementById("formulario-estado");
+  estado.replaceChildren(document.createTextNode("Tu mensaje está listo. Revísalo y envíalo en WhatsApp. Si no se abrió, "));
+  const reintentar = document.createElement("a");
+  reintentar.href = destino;
+  reintentar.target = "_blank";
+  reintentar.rel = "noopener";
+  reintentar.textContent = "abre tu mensaje aquí";
+  estado.append(reintentar);
+  estado.hidden = false;
 });
+
+// Una sola entrada de las pantallas; el contenido siempre es visible sin JavaScript.
+const vitrina = document.querySelector(".vitrina");
+if (vitrina && "IntersectionObserver" in window && !sinMovimiento.matches) {
+  const entrada = new IntersectionObserver((items, observer) => {
+    if (items.some(item => item.isIntersecting)) {
+      vitrina.classList.add("is-visible");
+      observer.disconnect();
+    }
+  }, { threshold: 0.1 });
+  entrada.observe(vitrina);
+}
