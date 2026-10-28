@@ -34,6 +34,25 @@ try:
             assert page.locator('[data-whatsapp]').first.get_attribute('href').startswith('https://wa.me/51993375345?')
             assert page.locator('[data-whatsapp]').first.bounding_box()['y'] < 900
             assert page.locator('a[href^="#"]').evaluate_all('(xs)=>xs.every(x=>document.getElementById(x.hash.slice(1)))')
+            track = page.locator('#presentacion-pista')
+            assert track.locator('article').count() == 6
+            for slide in range(1, 6):
+                page.locator('#presentacion-siguiente').click()
+                page.wait_for_function('(n) => Math.abs(document.querySelector("#presentacion-pista").scrollLeft / document.querySelector("#presentacion-pista").clientWidth - n) < .02', arg=slide)
+                assert page.locator('#presentacion-estado').inner_text().startswith(f'{slide + 1} de 6')
+                assert track.evaluate('(t) => Math.abs(t.clientHeight - t.children[Math.round(t.scrollLeft / t.clientWidth)].offsetHeight) <= 1')
+            page.locator('#presentacion-siguiente').click()
+            page.wait_for_function('document.querySelector("#presentacion-pista").scrollLeft === 0')
+            page.locator('#presentacion-anterior').click()
+            page.wait_for_function('document.querySelector("#presentacion-estado").textContent.startsWith("6 de 6")')
+            assert track.locator('a').get_attribute('href').startswith('https://docs.google.com/forms/')
+            track.focus()
+            page.keyboard.press('Home')
+            page.wait_for_function('document.querySelector("#presentacion-pista").scrollLeft === 0')
+            page.keyboard.press('ArrowRight')
+            page.wait_for_function('document.querySelector("#presentacion-estado").textContent.startsWith("2 de 6")')
+            page.locator('#presentacion-anterior').click()
+            assert page.locator('#presentacion-estado').inner_text().startswith('1 de 6')
             for value in ['3.50', '5.00', '4.20', '9.90', '45.00']:
                 page.locator(f'[data-venta="{value}"]').click()
             assert page.locator('#caja-total').inner_text() == 'S/ 67.60'
@@ -77,6 +96,10 @@ try:
         assert page.locator('h1').is_visible() and page.locator('[data-whatsapp]').is_visible()
         assert page.locator('[data-whatsapp]').get_attribute('href').startswith('https://wa.me/')
         assert not page.locator('#formulario').is_visible()
+        assert not page.locator('.presentacion__controles').is_visible()
+        page.locator('#presentacion-pista').hover()
+        page.mouse.wheel(500, 0)
+        page.wait_for_function('document.querySelector("#presentacion-pista").scrollLeft > 0')
         page.close()
         browser.close()
 finally:

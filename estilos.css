@@ -68,13 +68,54 @@ strong, b { font-weight: 600; }
 .vitrina__intro { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 40px; }
 .vitrina__intro h2 { margin: 0; }
 .vitrina__intro p { margin: 0; max-width: 35ch; }
-.vitrina__pantallas { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: clamp(20px, 6vw, 96px); max-width: 990px; margin-inline: auto; align-items: start; }
-.vitrina__pantallas figure { min-width: 0; }
-.vitrina__pantallas img { width: 100%; border: 5px solid var(--tinta); border-radius: 24px; }
 figcaption { margin-top: 14px; font-size: 15px; line-height: 1.5; }
-.vitrina__nota { margin: 32px 0 0; font-size: 14px; color: var(--secundario); text-align: center; }
 .cintillo { display: flex; justify-content: space-between; gap: 16px 32px; padding-block: 28px; font-size: 15px; }
 .cintillo p { margin: 0; }
+
+/* Presentación de puerta: navegación local, sin bloquear el scroll de la página. */
+.presentacion__controles { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.presentacion__controles p { flex: 1; margin: 0; text-align: center; font-size: 15px; }
+.presentacion__controles button { width: 48px; height: 48px; flex-shrink: 0; border: 0; background: var(--tinta); color: var(--papel); font-size: 24px; }
+.presentacion__controles button:hover { background: var(--carmin); }
+.presentacion__pista { display: grid; grid-auto-flow: column; grid-auto-columns: 100%; align-items: start; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
+.presentacion__pista::-webkit-scrollbar { display: none; }
+.presentacion__lamina { scroll-snap-align: start; min-width: 0; padding: clamp(24px, 4vw, 48px); background: var(--papel); }
+.presentacion__lamina:nth-child(odd) { background: var(--tinta); color: var(--papel); }
+.presentacion__lamina .contenido { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); align-items: center; gap: 40px; min-height: 430px; }
+.presentacion__lamina h3 { font-size: clamp(28px, 3.1vw, 42px); line-height: 1.12; margin-bottom: 24px; }
+.presentacion__lamina .bajada { font-size: 18px; }
+.presentacion__lamina .detalle { font-size: 15px; margin: 20px 0 0; }
+.presentacion__lamina .visual { display: flex; justify-content: center; gap: 16px; min-width: 0; }
+.presentacion__lamina .visual img { max-height: 430px; width: auto; max-width: 100%; object-fit: contain; }
+.presentacion__lamina .doble img { max-width: calc(50% - 8px); }
+.presentacion__lamina .tarjeta { background: var(--maiz); color: var(--tinta); padding: 36px; max-width: 360px; }
+.presentacion__lamina .dato { font-size: 96px; line-height: 1; letter-spacing: -.05em; }
+.presentacion__lamina .tarjeta p { margin: 24px 0 0; }
+.presentacion__lamina .pasos { padding-left: 20px; font-size: 16px; margin-bottom: 0; }
+.presentacion__lamina .pasos li + li { margin-top: 10px; }
+.presentacion__lamina .qr-panel { background: white; color: var(--tinta); padding: 20px; max-width: 300px; }
+.presentacion__lamina .qr-panel p { font-size: 14px; text-align: center; margin: 16px 0 0; }
+.presentacion__lamina .boton { margin-top: 24px; }
+@media (max-width: 900px) {
+  .presentacion__lamina { padding: 24px; }
+  .presentacion__lamina .contenido { gap: 24px; }
+  .presentacion__lamina h3 { font-size: 30px; }
+}
+@media (max-width: 600px) {
+  .presentacion__lamina { padding: 24px 20px; }
+  .presentacion__lamina .contenido { grid-template-columns: minmax(0, 1fr); gap: 24px; min-height: 0; }
+  .presentacion__lamina h3 { font-size: clamp(24px, 6.8vw, 30px); margin-bottom: 20px; }
+  .presentacion__lamina .bajada { font-size: 16px; }
+  .presentacion__lamina .visual img { max-height: 360px; }
+  .presentacion__lamina .doble { gap: 12px; }
+  .presentacion__lamina .doble img { max-width: calc(50% - 6px); }
+  .presentacion__lamina .tarjeta { padding: 24px; width: 100%; }
+  .presentacion__lamina .dato { font-size: 72px; }
+  .presentacion__lamina .qr-panel { max-width: 240px; }
+  .presentacion__lamina .boton { width: 100%; padding-inline: 12px; }
+  .presentacion__controles { display: grid; grid-template-columns: repeat(3, 48px); justify-content: space-between; gap: 12px; position: sticky; top: 0; z-index: 2; background: var(--superficie); padding-block: 12px; margin-bottom: 12px; }
+  .presentacion__controles p { grid-column: 1 / -1; grid-row: 1; font-size: 14px; }
+}
 
 .pagina { padding-block: var(--ritmo) 0; }
 .pagina__titulo { margin: 0; }
@@ -174,10 +215,6 @@ figcaption { margin-top: 14px; font-size: 15px; line-height: 1.5; }
 @media (prefers-reduced-motion: no-preference) {
   .titular { animation: entrada 600ms cubic-bezier(.2,.8,.2,1) both; }
   .portada__base { animation: entrada 600ms 100ms cubic-bezier(.2,.8,.2,1) both; }
-  .vitrina.is-visible figure img { animation: entrada 650ms cubic-bezier(.2,.8,.2,1) both; }
-  .vitrina.is-visible figure figcaption { animation: entrada 650ms 90ms cubic-bezier(.2,.8,.2,1) both; }
-  .vitrina.is-visible figure:nth-child(2) img, .vitrina.is-visible figure:nth-child(2) figcaption { animation-delay: 100ms; }
-  .vitrina.is-visible figure:nth-child(3) img, .vitrina.is-visible figure:nth-child(3) figcaption { animation-delay: 200ms; }
 }
 @media (max-width: 1000px) {
   .cabecera nav { gap: 18px; }
@@ -203,11 +240,6 @@ figcaption { margin-top: 14px; font-size: 15px; line-height: 1.5; }
   .vitrina { padding-block: 32px 24px; }
   .vitrina__intro { display: block; margin-bottom: 28px; }
   .vitrina__intro p { margin-top: 16px; font-size: 15px; }
-  .vitrina__pantallas { gap: 14px; grid-template-columns: 1fr 1fr; align-items: start; }
-  .vitrina__pantallas figure:first-child { grid-column: 1 / -1; width: 70%; justify-self: center; margin-bottom: 16px; }
-  .vitrina__pantallas img { border-width: 3px; border-radius: 14px; }
-  .vitrina__pantallas figcaption { font-size: 13px; }
-  .vitrina__nota { font-size: 13px; text-align: left; }
   .cintillo { flex-wrap: wrap; gap: 8px 20px; font-size: 14px; }
   h2 { font-size: clamp(28px, 7.8vw, 38px); }
   h3 { font-size: 20px; }

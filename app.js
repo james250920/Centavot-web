@@ -161,14 +161,78 @@ formulario?.addEventListener("submit", (evento) => {
   estado.hidden = false;
 });
 
-// Una sola entrada de las pantallas; el contenido siempre es visible sin JavaScript.
-const vitrina = document.querySelector(".vitrina");
-if (vitrina && "IntersectionObserver" in window && !sinMovimiento.matches) {
-  const entrada = new IntersectionObserver((items, observer) => {
-    if (items.some(item => item.isIntersecting)) {
-      vitrina.classList.add("is-visible");
-      observer.disconnect();
+// Sin JavaScript, las seis láminas se pueden recorrer con scroll horizontal.
+const pista = document.getElementById("presentacion-pista");
+if (pista) {
+  const laminas = [...pista.children];
+  const anterior = document.getElementById("presentacion-anterior");
+  const siguiente = document.getElementById("presentacion-siguiente");
+  const estado = document.getElementById("presentacion-estado");
+  const seccion = document.getElementById("presentacion");
+  const pausa = document.getElementById("presentacion-pausa");
+  let actual = 0;
+  let detenido = sinMovimiento.matches;
+  let visible = false;
+  let temporizador;
+  let finScroll;
+  let ancho = pista.clientWidth;
+  const ajustarAltura = () => {
+    pista.style.height = `${laminas[actual].offsetHeight}px`;
+  };
+  const programar = () => {
+    clearTimeout(temporizador);
+    const activo = !detenido && visible && !document.hidden && !seccion.matches(":hover") && !pista.contains(document.activeElement);
+    estado.setAttribute("aria-live", activo ? "off" : "polite");
+    if (activo) temporizador = setTimeout(() => ir(actual + 1), 6000);
+  };
+  const actualizar = () => {
+    estado.textContent = laminas[actual].getAttribute("aria-label").replace(":", " ·");
+    pausa.textContent = detenido ? "▶" : "Ⅱ";
+    pausa.setAttribute("aria-label", detenido ? "Activar avance automático" : "Pausar avance automático");
+    ajustarAltura();
+  };
+  const ir = (indice) => {
+    actual = (indice + laminas.length) % laminas.length;
+    pista.scrollTo({ left: actual * pista.clientWidth, behavior: sinMovimiento.matches ? "instant" : "smooth" });
+    actualizar();
+    programar();
+  };
+  pausa.addEventListener("click", () => { detenido = !detenido; actualizar(); programar(); });
+  anterior.addEventListener("click", () => ir(actual - 1));
+  siguiente.addEventListener("click", () => ir(actual + 1));
+  pista.addEventListener("keydown", (evento) => {
+    if (evento.target !== pista) return;
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(evento.key)) return;
+    evento.preventDefault();
+    ir(evento.key === "Home" ? 0 : evento.key === "End" ? laminas.length - 1 : actual + (evento.key === "ArrowRight" ? 1 : -1));
+  });
+  pista.addEventListener("scroll", () => {
+    clearTimeout(temporizador);
+    clearTimeout(finScroll);
+    finScroll = setTimeout(() => {
+      actual = Math.max(0, Math.min(laminas.length - 1, Math.round(pista.scrollLeft / pista.clientWidth)));
+      actualizar();
+      programar();
+    }, 150);
+  }, { passive: true });
+  seccion.addEventListener("mouseenter", programar);
+  seccion.addEventListener("mouseleave", programar);
+  seccion.addEventListener("focusin", programar);
+  seccion.addEventListener("focusout", () => setTimeout(programar, 0));
+  document.addEventListener("visibilitychange", programar);
+  sinMovimiento.addEventListener("change", () => { detenido = sinMovimiento.matches; actualizar(); programar(); });
+  new IntersectionObserver(([entrada]) => {
+    visible = entrada.isIntersecting;
+    programar();
+  }, { threshold: 0 }).observe(pista);
+  const dimensiones = new ResizeObserver(() => {
+    if (ancho !== pista.clientWidth) {
+      ancho = pista.clientWidth;
+      pista.scrollTo({ left: actual * ancho, behavior: "instant" });
     }
-  }, { threshold: 0.1 });
-  entrada.observe(vitrina);
+    ajustarAltura();
+  });
+  laminas.forEach(lamina => dimensiones.observe(lamina));
+  document.querySelector(".presentacion__controles").hidden = false;
+  actualizar();
 }

@@ -41,18 +41,56 @@
       </div>
     </section>
 
-    <section class="vitrina" aria-labelledby="vitrina-titulo">
+    <section class="vitrina" id="presentacion" aria-labelledby="vitrina-titulo" aria-roledescription="carrusel">
       <div class="envoltura">
         <div class="vitrina__intro">
           <h2 id="vitrina-titulo">Cada centavo,<br>en su lugar.</h2>
           <p>Del primer cliente al cierre del día.<br>Y del negocio a tu casa.</p>
         </div>
-        <div class="vitrina__pantallas">
-          <figure><img src="img/app-inicio.jpg" width="540" height="1050" alt="Inicio de Centavot con Venta, Gasto y Tu caja" fetchpriority="high"><figcaption>Lo que entra y lo que sale.</figcaption></figure>
-          <figure><img src="img/app-cobros.jpg" width="540" height="1050" alt="Cobros de Centavot con fiados y saldos pendientes" loading="lazy"><figcaption>Lo que falta cobrar.</figcaption></figure>
-          <figure><img src="img/app-presupuesto.jpg" width="540" height="1050" alt="Presupuesto personal con ahorro y gastos del mes" loading="lazy"><figcaption>Lo que quieres planear.</figcaption></figure>
+        <div class="presentacion__controles" hidden>
+          <button type="button" id="presentacion-anterior" aria-label="Lámina anterior" aria-controls="presentacion-pista">←</button>
+          <p id="presentacion-estado" role="status" aria-atomic="true">1 de 6 · Centavot</p>
+          <button type="button" id="presentacion-siguiente" aria-label="Lámina siguiente" aria-controls="presentacion-pista">→</button>
+          <button type="button" id="presentacion-pausa" aria-label="Pausar avance automático" aria-controls="presentacion-pista">Ⅱ</button>
         </div>
-        <p class="vitrina__nota">Pantallas reales de la app con datos de demostración.</p>
+        <div class="presentacion__pista" id="presentacion-pista" tabindex="0" aria-label="Presentación de Centavot; usa las flechas para cambiar de lámina">
+<article class="presentacion__lamina" role="group" aria-roledescription="diapositiva" aria-label="1 de 6: Centavot">
+      <div class="contenido">
+        <div class="texto"><h3>Tu negocio.<br>Cuentas claras.</h3><p class="bajada">Una app para anotar las ventas y gastos del día y saber cuánto te queda.</p><p class="detalle">Centavot hace las cuentas para que puedas enfocarte en atender tu negocio.</p></div>
+        <div class="visual"><img width="540" height="1050" class="captura" loading="lazy" src="img/presentacion/caja.jpg" alt="Inicio de Centavot con el resumen de caja del negocio"></div>
+      </div>
+    </article>
+<article class="presentacion__lamina" role="group" aria-roledescription="diapositiva" aria-label="2 de 6: Ventas y gastos">
+      <div class="contenido">
+        <div class="texto"><h3>Anota lo que entra y sale.</h3><p class="bajada">Registra ventas y gastos en el momento. Centavot suma los movimientos y te muestra el estado de tu caja.</p><ul class="pasos"><li><span>Consulta el resumen de hoy.</span></li><li><span>Revisa tus movimientos por fecha.</span></li></ul></div>
+        <div class="visual"><div class="tarjeta"><div class="dato">S/</div><p><b>Cada movimiento cuenta.</b><br>Ten a la vista lo que registraste en el negocio.</p></div></div>
+      </div>
+    </article>
+<article class="presentacion__lamina" role="group" aria-roledescription="diapositiva" aria-label="3 de 6: Cobros y fiados">
+      <div class="contenido">
+        <div class="texto"><h3>Que no se te pase ningún cobro.</h3><p class="bajada">Lleva el control de quién te debe, registra los abonos y revisa cuánto queda pendiente.</p><p class="detalle">También puedes registrar préstamos y dar seguimiento a sus pagos.</p></div>
+        <div class="visual"><img width="540" height="1050" class="captura" loading="lazy" src="img/presentacion/fiados.jpg" alt="Pantalla de cobros y cuentas pendientes en Centavot"></div>
+      </div>
+    </article>
+<article class="presentacion__lamina" role="group" aria-roledescription="diapositiva" aria-label="4 de 6: Presupuestos y metas">
+      <div class="contenido">
+        <div class="texto"><h3>Separa tus cuentas. Planea mejor.</h3><p class="bajada">Maneja el presupuesto de tu negocio y el personal en modos separados.</p><ul class="pasos"><li><span>Organiza gastos por categorías.</span></li><li><span>Define metas de ahorro y sigue tu avance.</span></li></ul></div>
+        <div class="visual doble"><img width="540" height="1050" loading="lazy" src="img/presentacion/presupuesto-negocio.jpg" alt="Presupuesto organizado por grupos para el negocio"><img width="540" height="1050" loading="lazy" src="img/presentacion/presupuesto-personal.jpg" alt="Presupuesto personal en Centavot"></div>
+      </div>
+    </article>
+<article class="presentacion__lamina" role="group" aria-roledescription="diapositiva" aria-label="5 de 6: Reportes y privacidad">
+      <div class="contenido">
+        <div class="texto"><h3>Decide con tus cuentas a la vista.</h3><p class="bajada">Consulta reportes e historial para entender los ingresos, gastos y movimientos de tu negocio.</p><ul class="pasos"><li><span>Revisa reportes y expórtalos a PDF o CSV.</span></li><li><span>Consulta topes tributarios referenciales.</span></li><li><span>Funciona sin conexión; tus registros se guardan en tu celular.</span></li><li><span>No conectas tus cuentas bancarias.</span></li></ul></div>
+        <div class="visual"><img width="540" height="1050" class="captura" loading="lazy" src="img/presentacion/reportes.jpg" alt="Reporte de movimientos del negocio en Centavot"></div>
+      </div>
+    </article>
+<article class="presentacion__lamina" role="group" aria-roledescription="diapositiva" aria-label="6 de 6: Inscripción DemoDay">
+      <div class="contenido">
+        <div class="texto"><h3>Nos vemos en el DemoDay.</h3><p class="bajada">Escanea el QR o abre el formulario para inscribirte al DemoDay.</p><a class="boton" href="https://docs.google.com/forms/d/e/1FAIpQLSe4cb8WgktwSxNXtA0uq6Ytf5ixk5HdPewW0X_Ta0OLiNQd1w/viewform" target="_blank" rel="noopener">Abrir inscripción ↗</a><p class="detalle">Conoce Centavot en la presentación del startup.</p></div>
+        <div class="visual"><div class="qr-panel"><img width="300" height="300" loading="lazy" src="img/presentacion/inscripcion.svg" alt="Código QR para inscribirte al DemoDay"><p>Escanéalo para abrir la inscripción<br>al DemoDay</p></div></div>
+      </div>
+    </article>
+        </div>
       </div>
     </section>
 

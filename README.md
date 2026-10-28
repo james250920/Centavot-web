@@ -37,6 +37,15 @@ Cualquier hosting estático sirve: GitHub Pages, Netlify o Vercel (arrastrar la 
 
 ## Archivos
 
+La presentación de `puerta` está integrada después de la portada, en lugar de la galería
+estática: seis láminas con navegación por botones, teclado y desplazamiento horizontal.
+Conserva el enlace y QR de inscripción al DemoDay. Sus imágenes están en
+`img/presentacion/`, incluidas en Docker mediante la copia de `img/`.
+Avanza automáticamente cada 6 segundos y vuelve al inicio al terminar; los botones también
+recorren las láminas en ambos sentidos sin límite. Incluye pausa y se detiene al pasar el
+puntero, enfocar el contenido o salir de pantalla. Con movimiento reducido comienza pausado.
+Sin JavaScript sigue disponible el desplazamiento horizontal.
+
 | Archivo | Qué es |
 |---|---|
 | `index.html` | Portada, pantallas reales, demo, funciones, inscripción y preguntas |
