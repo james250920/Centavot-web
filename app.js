@@ -227,6 +227,7 @@ if (pista) {
   }, { threshold: 0 }).observe(pista);
   const dimensiones = new ResizeObserver(() => {
     if (ancho !== pista.clientWidth) {
+      clearTimeout(finScroll);
       ancho = pista.clientWidth;
       pista.scrollTo({ left: actual * ancho, behavior: "instant" });
     }
