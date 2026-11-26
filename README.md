@@ -16,19 +16,19 @@ Abre `index.html` con doble clic, o sirve la carpeta:
 python3 -m http.server 8000
 ```
 
-## Con Docker (puerto 4235)
+## Con Docker (puerto 4335)
 
 ```
 docker build -t centavot-web .
-docker run -d --name centavot-web -p 4235:4235 --restart unless-stopped centavot-web
+docker run -d --name centavot-web -p 4335:4335 --restart unless-stopped centavot-web
 ```
 
-Queda en http://localhost:4235. La imagen usa nginx: comprime estilos y script, guarda en caché
+Queda en http://localhost:4335. La imagen usa nginx: comprime estilos y script, guarda en caché
 las imágenes un día y no publica los archivos `.json` de origen de las imágenes. Para actualizarla
 después de un cambio, vuelve a construirla y reemplaza el contenedor:
 
 ```
-docker build -t centavot-web . && docker rm -f centavot-web && docker run -d --name centavot-web -p 4235:4235 --restart unless-stopped centavot-web
+docker build -t centavot-web . && docker rm -f centavot-web && docker run -d --name centavot-web -p 4335:4335 --restart unless-stopped centavot-web
 ```
 
 ## Publicarla gratis
@@ -52,7 +52,7 @@ Sin JavaScript sigue disponible el desplazamiento horizontal.
 | `estilos.css` | Marca Andina, composición adaptable y estados de los controles |
 | `app.js` | Demo de ventas, entrada de la galería y formulario para WhatsApp |
 | `img/` | Marca Andina oficial, capturas de la app e íconos |
-| `Dockerfile`, `docker/nginx.conf` | Imagen de nginx que sirve la página en el puerto 4235 |
+| `Dockerfile`, `docker/nginx.conf` | Imagen de nginx que sirve la página en el puerto 4335 |
 
 El formulario no guarda nada en un servidor: arma el mensaje con los datos y abre WhatsApp para
 que el comerciante lo envíe.
