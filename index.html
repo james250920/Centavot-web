@@ -24,6 +24,7 @@
     <nav aria-label="Principal">
       <a href="#anota">Cómo funciona</a>
       <a href="#presupuesto">Tu presupuesto</a>
+      <a href="https://centavot.menfroyt-dev.com/" class="nav-app">Abrir la app</a>
       <a href="#clasificados" class="nav-piloto">Únete al piloto <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M6 18 18 6M6 6h12v12" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
     </nav>
   </header>
@@ -34,9 +35,10 @@
       <div class="portada__base">
         <p class="bajada">Tu app para anotar ventas, gastos y fiados. Separa la plata de tu casa y descubre cuánto te quedó. <strong>Sin hacer cuentas en el cuaderno.</strong></p>
         <div class="portada__accion">
-          <a class="boton boton--whatsapp" data-whatsapp href="https://wa.me/51993375345?text=Hola%2C%20quiero%20probar%20Centavot%20gratis%20en%20mi%20negocio." target="_blank" rel="noopener">Quiero probar Centavot <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
-          <p>Gratis durante el piloto · Android</p>
-          <a class="enlace-texto" href="#anota">Prueba cómo suma</a>
+          <a class="boton boton--app" href="https://centavot.menfroyt-dev.com/?demo=1">Pruébala ahora, sin cuenta <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+          <p>Se abre en tu navegador con una bodega de ejemplo. No pide correo ni instalar nada.</p>
+          <a class="boton boton--secundario boton--whatsapp" data-whatsapp href="https://wa.me/51993375345?text=Hola%2C%20quiero%20probar%20Centavot%20gratis%20en%20mi%20negocio." target="_blank" rel="noopener">Quiero el piloto en mi negocio</a>
+          <p>Gratis · Te la instalamos y te enseñamos.</p>
         </div>
       </div>
     </section>
@@ -48,10 +50,10 @@
           <p>Del primer cliente al cierre del día.<br>Y del negocio a tu casa.</p>
         </div>
         <div class="presentacion__controles" hidden>
-          <button type="button" id="presentacion-anterior" aria-label="Lámina anterior" aria-controls="presentacion-pista">←</button>
+          <button type="button" id="presentacion-anterior" aria-label="Lámina anterior" aria-controls="presentacion-pista"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M19 12H5m6 6-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></button>
           <p id="presentacion-estado" role="status" aria-atomic="true">1 de 6 · Centavot</p>
-          <button type="button" id="presentacion-siguiente" aria-label="Lámina siguiente" aria-controls="presentacion-pista">→</button>
-          <button type="button" id="presentacion-pausa" aria-label="Pausar avance automático" aria-controls="presentacion-pista">Ⅱ</button>
+          <button type="button" id="presentacion-siguiente" aria-label="Lámina siguiente" aria-controls="presentacion-pista"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></button>
+          <button type="button" id="presentacion-pausa" aria-label="Pausar avance automático" aria-controls="presentacion-pista"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14M16 5v14" fill="none" stroke="currentColor" stroke-width="2.6"/></svg></button>
         </div>
         <div class="presentacion__pista" id="presentacion-pista" tabindex="0" aria-label="Presentación de Centavot; usa las flechas para cambiar de lámina">
 <article class="presentacion__lamina" role="group" aria-roledescription="diapositiva" aria-label="1 de 6: Centavot">
@@ -238,7 +240,7 @@
         <ol class="aviso__lista">
           <li><b>No pedimos tu banco.</b> Ni claves ni número de cuenta.</li>
           <li><b>No le mandamos nada a SUNAT.</b> Los reportes los ves tú y a quien tú se los mandes.</li>
-          <li><b>Todo se guarda en tu celular.</b> No se sube a ningún servidor. Funciona sin internet.</li>
+          <li><b>Funciona sin internet.</b> Todo se guarda primero en tu celular; cuando hay señal, se copia a tu cuenta para que no lo pierdas si cambias de equipo. Solo tú lo ves.</li>
           <li><b>Puedes llevarte o borrar todo</b> cuando quieras, desde Ajustes, como manda la Ley 29733 de protección de datos.</li>
         </ol>
       </div>
@@ -252,7 +254,8 @@
       <div class="clasificados">
         <article class="aviso-clasificado aviso-clasificado--grande" aria-labelledby="se-buscan">
           <h3 id="se-buscan" class="aviso-clasificado__titulo">Buscamos 20 negocios</h3>
-          <p>Bodegas y puestos de mercado de Lima para probar <strong>Centavot gratis</strong> de octubre a diciembre de 2026. Vamos a tu negocio, te la instalamos y te enseñamos. Solo necesitas un celular Android.</p>
+          <p>Bodegas y puestos de mercado de Lima para probar <strong>Centavot gratis</strong> de octubre a diciembre de 2026. Vamos a tu negocio, te la instalamos y te enseñamos. Sirve en tu celular Android o desde el navegador.</p>
+          <p class="aviso-clasificado__otra">¿Primero quieres verla? <a href="https://centavot.menfroyt-dev.com/?demo=1">Pruébala ahora, sin cuenta</a>.</p>
           <noscript>
             <style>.formulario, .prueba { display: none !important; }</style>
             <p>Para coordinar la visita, <a href="https://wa.me/51993375345">escríbenos por WhatsApp</a>. Activa JavaScript si prefieres completar el formulario.</p>
@@ -302,11 +305,11 @@
         </article>
         <article class="aviso-clasificado">
           <h3 class="aviso-clasificado__titulo">¿Necesita internet?</h3>
-          <p><b>No.</b> Anotas, sumas y revisas tu caja sin datos. Solo usas internet si quieres mandar un recordatorio o un reporte.</p>
+          <p><b>No.</b> Anotas, sumas y revisas tu caja sin datos. Cuando vuelve la señal, se guarda una copia en tu cuenta; también la usas para mandar recordatorios o reportes.</p>
         </article>
         <article class="aviso-clasificado">
           <h3 class="aviso-clasificado__titulo">¿Sirve en iPhone?</h3>
-          <p><b>Por ahora no.</b> Es para celulares Android. Todavía no está en Google Play: la instalamos contigo en el piloto.</p>
+          <p><b>Sí, desde el navegador.</b> Abre <a href="https://centavot.menfroyt-dev.com/">centavot.menfroyt-dev.com</a> en Safari y agrégala a tu pantalla de inicio. La app de Android todavía no está en Google Play: la instalamos contigo en el piloto.</p>
         </article>
         <article class="aviso-clasificado">
           <h3 class="aviso-clasificado__titulo">¿Y mi cuaderno?</h3>
@@ -336,7 +339,7 @@
         <p>Proyecto del curso Proyecto Startup · Universidad ESAN · Lima, 2026.</p>
         <p>Equipo: Sandro Fabrizio Enrique Avila Agurto, James Frank Mendoza Rios y Meyly Cielo Mendoza Cobeñas.</p>
         <p>Las pantallas y cifras usan datos de ejemplo, no clientes reales.</p>
-        <a href="#portada">Volver al inicio</a>
+        <p><a href="https://centavot.menfroyt-dev.com/">Abrir Centavot</a> · <a href="#portada">Volver al inicio</a></p>
       </div>
     </div>
   </footer>

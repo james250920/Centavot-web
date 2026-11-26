@@ -187,7 +187,10 @@ if (pista) {
   };
   const actualizar = () => {
     estado.textContent = laminas[actual].getAttribute("aria-label").replace(":", " ·");
-    pausa.textContent = detenido ? "▶" : "Ⅱ";
+    // Íconos dibujados (no caracteres): reproducir o pausar.
+    pausa.innerHTML = detenido
+      ? '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>'
+      : '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14M16 5v14" fill="none" stroke="currentColor" stroke-width="2.6"/></svg>';
     pausa.setAttribute("aria-label", detenido ? "Activar avance automático" : "Pausar avance automático");
     ajustarAltura();
   };

@@ -62,6 +62,18 @@ strong, b { font-weight: 600; }
 .boton:active { transform: translateY(2px); }
 .boton svg { flex-shrink: 0; transition: transform 180ms; }
 .boton:hover svg { transform: translateX(4px); }
+/* Probar la app (acción principal): el amarillo marca dónde se actúa. */
+.boton--app { background: var(--maiz); color: var(--tinta); }
+.boton--app:hover { background: var(--tinta); color: var(--papel); }
+/* Segunda acción: contorno de tinta. */
+.boton--secundario { background: transparent; color: var(--tinta); box-shadow: inset 0 0 0 2px var(--tinta); min-height: 52px; }
+.boton--secundario:hover { background: var(--tinta); color: var(--papel); }
+.portada__accion { display: grid; justify-items: start; max-width: 360px; }
+.portada__accion .boton { width: 100%; }
+.portada__accion .boton--secundario { margin-top: 20px; }
+.nav-app { font-weight: 600; }
+.aviso-clasificado__otra { font-weight: 600; }
+.presentacion__controles button { display: grid; place-items: center; }
 
 /* Las pantallas reales son la prueba visual; los datos están rotulados como ejemplo. */
 .vitrina { background: var(--superficie); padding-block: 48px 24px; }
@@ -230,7 +242,15 @@ figcaption { margin-top: 14px; font-size: 15px; line-height: 1.5; }
   .cabecera { padding-block: 16px; gap: 16px; }
   .marca-logo { width: 145px; }
   .cabecera nav a { font-size: 13px; }
-  .cabecera nav a:not(.nav-piloto) { display: none; }
+  .cabecera nav a:not(.nav-piloto):not(.nav-app) { display: none; }
+  /* En el celular quedan "Abrir la app" y "Únete al piloto", en una sola línea. */
+  .cabecera nav { gap: 14px; }
+  .cabecera nav a { white-space: nowrap; }
+  .cabecera nav a svg { display: none; }
+}
+@media (max-width: 400px) {
+  .marca-logo { width: 118px; }
+  .cabecera { gap: 12px; }
   .portada { padding-block: 28px 48px; }
   .titular { font-size: clamp(35px, 9.8vw, 64px); line-height: 1.08; margin-bottom: 24px; }
   .portada__base { display: block; }
@@ -261,4 +281,8 @@ figcaption { margin-top: 14px; font-size: 15px; line-height: 1.5; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+/* Celulares muy angostos: solo "Abrir la app" (el piloto ya está en la portada). */
+@media (max-width: 340px) {
+  .cabecera nav .nav-piloto { display: none; }
 }
